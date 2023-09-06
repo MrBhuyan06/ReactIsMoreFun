@@ -1,11 +1,13 @@
-import logo from "./logo.svg";
-import "./App.css";
-
+import "./index.css";
+import Main from "./components/Main.js";
+import Header from "./components/Header.js";
+import WatchPage from "./components/WatchPage.js";
 function App() {
   return (
-    <div className="App">
-      <h1>Hello YouTube</h1>
-    </div>
+    <>
+      <Header />
+      <Main />
+    </>
   );
 }
 
