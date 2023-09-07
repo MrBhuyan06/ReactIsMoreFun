@@ -1,13 +1,20 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../contant/appNavigation.js";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  function isMenuOpenHandler() {
+    dispatch(toggleMenu());
+  }
   return (
     <div className="grid grid-flow-col items-center  shadow-xl  ">
       <div className="flex items-center col-span-3  gap-2">
         <img
-          className="w-10 h-10"
+          className="w-10 h-10 cursor-pointer"
           src="https://cdn.iconscout.com/icon/free/png-256/free-hamburger-menu-462145.png?f=webp"
           alt=""
+          onClick={isMenuOpenHandler}
         />
         <img
           className="h-20 w-20"

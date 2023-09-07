@@ -1,6 +1,11 @@
-import React from "react";
+import { useSelector } from "react-redux";
+import store from "../contant/store.js";
 
 const SideBar = () => {
+  const isMenuOpen = useSelector((store) => store.app1.isMenuOpen);
+  if (!isMenuOpen) {
+    return null;
+  }
   return (
     <div className="col-span-2">
       <ul>
