@@ -1,9 +1,17 @@
 import React from "react";
+import Button from "./Button.js";
 
-const ButtonList = ({ name }) => {
+const ButtonList = () => {
   return (
-    <div className="flex   mt-2 w-full">
-      <button className="border-2 p-2 bg-gray-300 rounded-md">{name}</button>
+    <div className=" flex flex-row gap-4 w-full border-2">
+      <Button name="live" />
+      <Button name="Music" />
+      <Button name="Trending" />
+      <Button name="Cricket" />
+      <Button name="Your Video" />
+      <Button name="Code" />
+      <Button name="javaScript" />
+      <Button name="Frontend" />
     </div>
   );
 };
