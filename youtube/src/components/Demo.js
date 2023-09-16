@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { render } from "react-dom";
 import { fact, findPrime } from "../config/helper.js";
 
@@ -7,7 +7,8 @@ const Demo = () => {
   const [dark, setDark] = useState(false);
 
   //   const value = fact(number);
-  const prime = findPrime(number);
+  //   const prime = findPrime(number);
+  const prime = useMemo(() => findPrime(number), [number]);
 
   return (
     <div>
