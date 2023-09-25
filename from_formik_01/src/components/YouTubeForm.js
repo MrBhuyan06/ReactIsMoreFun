@@ -6,17 +6,17 @@ const YouTubeForm = () => {
     initialValues: {
       name: "Abhishek",
       email: "",
-      Channel: "",
+      channel: "",
     },
-    onSubmit: (values) => {
+    onSubmit: (value) => {
       //here we can have the api call for sending the data
-      console.log(values);
+      console.log(value);
     },
   });
   //this hook returb the method properity for functionality
   //   console.log(formik);
   // formik.value is trigger on formikHandler attached with event
-  // console.log(formik.values);
+  console.log(formik.values);
 
   return (
     <form onSubmit={formik.handleSubmit}>
