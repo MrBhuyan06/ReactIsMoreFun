@@ -1,34 +1,13 @@
 import React from "react";
 import { formik, useFormik } from "formik";
+import { validate, initialValues, onSubmit } from "../config/helper.js";
 const YouTubeForm = () => {
   //useFormik hook setup
   const formik = useFormik({
-    initialValues: {
-      name: "Abhishek",
-      email: "",
-      channel: "",
-    },
-    onSubmit: (value) => {
-      //here we can have the api call for sending the data
-      console.log(value);
-    },
+    initialValues,
+    onSubmit,
 
-    validate: (values) => {
-      //it return a error oject
-      let error = {};
-      if (!values.name) {
-        error.name = "Required";
-      }
-      if (!values.email) {
-        error.email = "Required";
-      } else if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(values.email)) {
-        error.email = "InValid Email";
-      }
-      if (!values.channel) {
-        error.channel = "Required";
-      }
-      return error;
-    },
+    validate,
   });
   //this hook returb the method properity for functionality
   //   console.log(formik);
