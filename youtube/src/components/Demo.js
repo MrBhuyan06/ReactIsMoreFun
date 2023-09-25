@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { render } from "react-dom";
 import { fact, findPrime } from "../config/helper.js";
 
@@ -8,7 +8,11 @@ const Demo = () => {
 
   //   const value = fact(number);
   //   const prime = findPrime(number);
-  const prime = useMemo(() => findPrime(number), [number]);
+  //   const prime = useMemo(() => findPrime(number), [number]);
+  const prime = useMemo(() => {
+    console.log("call");
+    return findPrime;
+  }, [number]);
 
   return (
     <div>
@@ -37,7 +41,7 @@ const Demo = () => {
         />
         <button className="px-4 ml-2 rounded-md bg-green-300">cal</button>
         <div>
-          <span className="font-semibold">Res{prime}</span>
+          <span className="font-semibold">Res{prime()}</span>
         </div>
       </div>
     </div>
