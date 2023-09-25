@@ -12,11 +12,28 @@ const YouTubeForm = () => {
       //here we can have the api call for sending the data
       console.log(value);
     },
+    validate: (values) => {
+      //it return a error oject
+      let error = {};
+      if (!values.name) {
+        error.name = "Required";
+      }
+      if (!values.email) {
+        error.email = "Required";
+      } else if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(values.email)) {
+        error.email = "InValid Email";
+      }
+      if (!values.channel) {
+        error.channel = "Required";
+      }
+      return error;
+    },
   });
   //this hook returb the method properity for functionality
   //   console.log(formik);
   // formik.value is trigger on formikHandler attached with event
-  console.log(formik.values);
+  // console.log(formik.values);
+  console.log(formik.errors);
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -28,6 +45,9 @@ const YouTubeForm = () => {
         onChange={formik.handleChange}
         value={formik.values.name}
       />
+      {formik.errors.name ? (
+        <div style={{ color: "red" }}>{formik.errors.name}</div>
+      ) : null}
       <br />
       <label htmlFor="email">Email</label>
       <input
@@ -37,6 +57,9 @@ const YouTubeForm = () => {
         onChange={formik.handleChange}
         // value={}
       />
+      {formik.errors.email ? (
+        <div style={{ color: "red" }}>{formik.errors.email}</div>
+      ) : null}
       <br />
       <label htmlFor="channel">Channel</label>
       <input
@@ -45,6 +68,9 @@ const YouTubeForm = () => {
         id="channel"
         onChange={formik.handleChange}
       />
+      {formik.errors.channel ? (
+        <div style={{ color: "red" }}>{formik.errors.channel}</div>
+      ) : null}
       <br />
       <button type="submit">Submit</button>
     </form>
