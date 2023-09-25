@@ -1,13 +1,18 @@
 import React from "react";
 import { formik, useFormik } from "formik";
-import { validate, initialValues, onSubmit } from "../config/helper.js";
+import {
+  validate,
+  initialValues,
+  onSubmit,
+  validationSchema,
+} from "../config/helper.js";
 const YouTubeForm = () => {
   //useFormik hook setup
   const formik = useFormik({
     initialValues,
-    onSubmit,
+    validationSchema,
 
-    validate,
+    onSubmit,
   });
   //this hook returb the method properity for functionality
   //   console.log(formik);
