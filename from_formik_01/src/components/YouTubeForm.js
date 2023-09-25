@@ -12,6 +12,7 @@ const YouTubeForm = () => {
       //here we can have the api call for sending the data
       console.log(value);
     },
+
     validate: (values) => {
       //it return a error oject
       let error = {};
@@ -33,7 +34,8 @@ const YouTubeForm = () => {
   //   console.log(formik);
   // formik.value is trigger on formikHandler attached with event
   // console.log(formik.values);
-  console.log(formik.errors);
+  // console.log(formik.errors);
+  console.log(formik.touched);
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -44,8 +46,9 @@ const YouTubeForm = () => {
         id="name"
         onChange={formik.handleChange}
         value={formik.values.name}
+        onBlur={formik.handleBlur}
       />
-      {formik.errors.name ? (
+      {formik.touched.name && formik.errors.name ? (
         <div style={{ color: "red" }}>{formik.errors.name}</div>
       ) : null}
       <br />
@@ -55,9 +58,10 @@ const YouTubeForm = () => {
         name="email"
         id="email"
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
         // value={}
       />
-      {formik.errors.email ? (
+      {formik.touched.email && formik.errors.email ? (
         <div style={{ color: "red" }}>{formik.errors.email}</div>
       ) : null}
       <br />
@@ -67,8 +71,9 @@ const YouTubeForm = () => {
         name="channel"
         id="channel"
         onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
       />
-      {formik.errors.channel ? (
+      {formik.touched.channel && formik.errors.channel ? (
         <div style={{ color: "red" }}>{formik.errors.channel}</div>
       ) : null}
       <br />
