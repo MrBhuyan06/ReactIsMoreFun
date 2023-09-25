@@ -8,6 +8,10 @@ const YouTubeForm = () => {
       email: "",
       Channel: "",
     },
+    onSubmit: (values) => {
+      //here we can have the api call for sending the data
+      console.log(values);
+    },
   });
   //this hook returb the method properity for functionality
   //   console.log(formik);
@@ -15,7 +19,7 @@ const YouTubeForm = () => {
   // console.log(formik.values);
 
   return (
-    <div>
+    <form onSubmit={formik.handleSubmit}>
       <label htmlFor="name">Name</label>
       <input
         type="text"
@@ -43,7 +47,7 @@ const YouTubeForm = () => {
       />
       <br />
       <button type="submit">Submit</button>
-    </div>
+    </form>
   );
 };
 
