@@ -1,23 +1,18 @@
-import React from "react";
-import { Formik, Form, useFormik, Field, ErrorMessage } from "formik";
+import React, { useRef } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
-import {
-  validate,
-  initialValues,
-  onSubmit,
-  validationSchema,
-} from "../config/helper.js";
+import { initialValues, onSubmit, validationSchema } from "../config/helper.js";
 const NewYouTubeForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={onsubmit}
+      onSubmit={onSubmit}
       validationSchema={validationSchema}
     >
       <Form>
         <label htmlFor="name">Name</label>
         <Field type="text" name="name" id="name" />
-        <ErrorMessage />
+        <ErrorMessage name="name" />
         <br />
         <label htmlFor="email">Email</label>
         <Field
@@ -27,12 +22,25 @@ const NewYouTubeForm = () => {
 
           // value={}
         />
-        <ErrorMessage />
+        <ErrorMessage name="email" />
         <br />
         <label htmlFor="channel">Channel</label>
         <Field type="text" name="channel" id="channel" />
-        <ErrorMessage />
+        <ErrorMessage name="channel" />
         <br />
+        <div>
+          <label htmlFor="comment">Comment</label>
+          <Field as="textarea" name="comment" id="comment" />
+        </div>
+        {/* Render prop objecv */}
+        <label htmlFor="address">Address</label>
+        <Field name="address">
+          {(props) => {
+            console.log(props);
+            const { field, form, meta } = props;
+            return <input type="text" id="address" {...field} />;
+          }}
+        </Field>
         <button type="submit">Submit</button>
       </Form>
     </Formik>
