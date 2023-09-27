@@ -1,32 +1,35 @@
+import React from "react";
 import { useSelector } from "react-redux";
-import store from "../contant/store.js";
+import store from "../config/store.js";
 
 const SideBar = () => {
-  const isMenuOpen = useSelector((store) => store.app1.isMenuOpen);
-  if (!isMenuOpen) {
-    return null;
+  const isOpen = useSelector((store) => store.app.isOpenMenu);
+  if (!isOpen) {
+    return;
   }
+
   return (
-    <div className="col-span-2">
+    <div className="w-2/5 p-2 shadow-lg  ml-2">
       <ul>
         <li>Home</li>
+
         <li>Shorts</li>
         <li>Video</li>
         <li>Live</li>
-        <h1 className="font-bold mt-4">SubScription</h1>
-        <ul>
-          <li>Music</li>
-          <li>sport</li>
-          <li>Gaming</li>
-          <li>Movie</li>
-        </ul>
-        <h1 className="font-bold pt-5">Watch Later</h1>
-        <ul>
-          <li>GOM</li>
-          <li>sport</li>
-          <li>Gaming</li>
-          <li>Movie</li>
-        </ul>
+      </ul>
+      <h1 className="font-bold mt-4">SubScription</h1>
+      <ul>
+        <li>Music</li>
+        <li>sport</li>
+        <li>Gaming</li>
+        <li>Movie</li>
+      </ul>
+      <h1 className="font-bold pt-5">Watch Later</h1>
+      <ul>
+        <li>GOM</li>
+        <li>sport</li>
+        <li>Gaming</li>
+        <li>Movie</li>
       </ul>
     </div>
   );
