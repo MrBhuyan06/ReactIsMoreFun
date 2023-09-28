@@ -38,7 +38,12 @@ const NewYouTubeForm = () => {
           {(props) => {
             console.log(props);
             const { field, form, meta } = props;
-            return <input type="text" id="address" {...field} />;
+            return (
+              <div>
+                <input type="text" id="address" {...field} />;
+                {meta.touched && meta.error ? <div>{meta.error}</div> : null}
+              </div>
+            );
           }}
         </Field>
         <button type="submit">Submit</button>
