@@ -5,6 +5,7 @@ export const validationSchema = yup.object({
   name: yup.string().required("required filed name"),
   email: yup.string().email("invalid email format").required("Required email"),
   channel: yup.string().required("Required channel"),
+  address: yup.string().required().max(4, "must grt then 3"),
 });
 
 // export const validate = (values) => {
@@ -27,6 +28,8 @@ export const initialValues = {
   name: "Abhishek",
   email: "",
   channel: "",
+  comment: "",
+  address: "asw",
 };
 export const onSubmit = (value) => {
   //here we can have the api call for sending the data
